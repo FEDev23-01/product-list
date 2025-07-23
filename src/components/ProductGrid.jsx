@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 export default function ProductGrid({ products }) {
   return (
     <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
@@ -15,3 +16,13 @@ export default function ProductGrid({ products }) {
     </div>
   );
 }
+ProductGrid.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
